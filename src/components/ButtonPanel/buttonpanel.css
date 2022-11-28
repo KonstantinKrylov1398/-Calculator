@@ -1,0 +1,20 @@
+.main_element {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 88px;
+    text-align: center;
+    color: #F2F2F2;
+    background: transparent;
+    border: none;
+    width: 100px;
+    height: 80px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main_button {
+    min-width: 460px;
+    height: 480px;
+    opacity: 1;
+    border-top: 2px solid #FFFFFF;
+}

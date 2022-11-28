@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ButtonPanel } from "../components/ButtonPanel/ButtonPanel";
+import { WindowResult } from "../components/WIndowResult/WindowResult";
 import { equalEvent } from "../utils/equalEvent";
 import { numberHandle } from "../utils/numberHandle";
 import { operandsHandle } from "../utils/operandsHandle";
@@ -15,7 +17,31 @@ export interface typeTotal {
 
 export function App() {
   const dataEntry = (event: KeyboardEvent) => {
-    ifSign(event.key);
+    if (
+      event.key === "/" ||
+      event.key === "*" ||
+      event.key === "+" ||
+      event.key === "-" ||
+      event.key === "=" ||
+      event.key === "Enter" ||
+      event.key === "%" ||
+      event.key === "Escape" ||
+      event.key === "." ||
+      event.key === "0" ||
+      event.key === "1" ||
+      event.key === "2" ||
+      event.key === "3" ||
+      event.key === "4" ||
+      event.key === "5" ||
+      event.key === "6" ||
+      event.key === "7" ||
+      event.key === "8" ||
+      event.key === "9"
+    ) {
+      ifSign(event.key);
+    } else {
+      return;
+    }
   };
   useEffect(() => {
     window.addEventListener("keydown", dataEntry);
@@ -23,28 +49,6 @@ export function App() {
       window.removeEventListener("keydown", dataEntry);
     };
   });
-  const massiv = [
-    "C",
-    "SQRT",
-    "%",
-    "/",
-    "7",
-    "8",
-    "9",
-    "*",
-    "4",
-    "5",
-    "6",
-    "-",
-    "1",
-    "2",
-    "3",
-    "+",
-    "00",
-    "0",
-    ".",
-    "=",
-  ];
 
   const [total, setTotal] = useState<typeTotal>({
     number: 0,
@@ -70,26 +74,11 @@ export function App() {
       ? pointHandle(element, setTotal, total)
       : numberHandle(element, setTotal, total);
   };
-
   return (
     <div className={style.main}>
       <div className={style.main_calculator}>
-        <div className={style.main_total}>
-          {total.number ? total.number : total.result}
-        </div>
-        <div className={style.main_button}>
-          {massiv.map((element, i) => {
-            return (
-              <button
-                key={i}
-                onClick={() => ifSign(element.toString())}
-                className={style.main_element}
-              >
-                {element}
-              </button>
-            );
-          })}
-        </div>
+        <WindowResult total={total} />
+        <ButtonPanel ifSign={ifSign} />
       </div>
     </div>
   );

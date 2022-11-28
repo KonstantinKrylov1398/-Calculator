@@ -30,25 +30,6 @@ body {
     border-radius: 18px;
 }
 
-.main_button {
-    width: 460px;
-    height: 480px;
-    opacity: 1;
-    border-top: 2px solid #FFFFFF;
-}
-
-.main_element {
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 88px;
-    text-align: center;
-    color: #F2F2F2;
-    background: transparent;
-    border: none;
-    width: 100px;
-    height: 80px;
-}
-
 .main_element:not(:nth-child(4n)) {
     margin-right: 20px;
 }
@@ -59,18 +40,6 @@ body {
 
 .main_element:nth-child(-n+4) {
     margin-top: 15px;
-}
-
-.main_total {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 56px;
-    line-height: 80px;
-    text-align: right;
-    color: #F2F2F2;
-    width: 460px;
-    height: 76px;
-    margin-bottom: 18px;
 }
 
 .main_amount {
